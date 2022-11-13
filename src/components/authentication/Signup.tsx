@@ -39,7 +39,7 @@ const Signup = () => {
   //     })
   //   }
   // }
-   
+  
   return (
     <div className='auth d-flex p-5 justify-content-center align-item-center' >
        <Container className='Signup shadow-lg p-5  rounded'>
