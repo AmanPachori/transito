@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+*{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  --paragraphColor : #fff;
+    --themeColor:#ff8906;
+    --cardColor : #161a23;
+    --primaryColor : #9B59B6;
+    --backgroundColor: #000;
+    --cardColor1 : #7ee787;
+    --cardColor2 : rgb(255, 255, 255, 50%);
+    --cardColor4 : rgb(255, 255, 255, 80%);
+    --cardColor3 : #FFa28b;
+    --link : #0d6efd
+}
+.App{
+  background-color: var(--backgroundColor);
+  color: var(--paragraphColor)
+}
+/* -------------Auth -------------*/
+
+.Signup{
+  background: var(--cardColor);
+  max-width: 60vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Card{
+ color: var(--themelight)
+}
+.Card button{
+    background-color: var(--themeColor);
+}
+.Card button:hover{
+    background-color:  var(--themeColor);
+}
+.Image img{
+    min-width: 200px;
+    min-height: 200px;
+    max-height: 400px;
+    max-width: 400px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Link{ 
+ text-decoration: none;
+ color: var(--themeColor);
 }
-
-.App-header {
-  background-color: #282c34;
+.Link:hover{ 
+ text-decoration: none;
+ color: var(--themeColor);
+}
+/*---------- Category -----------*/
+.Transaction, .App{
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 100vw;
+}
+.Category div{
+  border: 2px solid var(--cardColor2);
+  
+  border-radius: 10px;
+}
+.Category button{
+ color: var(--paragraphColor);
+}
+.Category button:hover{
+ background-color: var(--cardColor2);
+ transition: all 0.5s;
+}
+.sidenav
+{
+  border-radius: 20px;
+  max-height: 95vh;
+  width: auto;
+}
+@media screen and (max-width: 1247px) {
+  .sidenav {
+   width :80vw !important;
+  }
+}
+.card{
+  transform: scale(1);
+  min-width : 18rem;
+  max-width : 18rem;
+  background-color : var(--backgroundColor);
+  color: var(--themeColor);
+  border : 2px solid var(--cardColor2);;
+  transition:all 0.2s ease-out;
+  transform: none;
+}
+.details{
+  color: var(--themeColor);
+}
+.card span,
+.details span{
+  color: var(--paragraphColor);
+  transition:all 0.2s ease-out;
+}
+.card:hover{
+  transform: scale(1.02);
+  border : 2.5px solid var(--cardColor4);
+  filter: drop-shadow(0 0 0px rgb(255, 255, 255, 60%));
+}
+.card-link{
+  text-decoration: none;
+  color: var(--paragraphColor);
+}
+.card-link:hover{
+  color: var(--paragraphColor);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-item i,
+.nav-item span {
+  color: var(--themeColor);
 }
