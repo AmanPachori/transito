@@ -38,16 +38,16 @@ const Signin = () => {
   // }
    
   return (
-    <div className='auth d-flex p-5 justify-content-center align-item-center' >
-       <Container className='Signup p-5 shadow-lg rounded'>
-        
+    <div className='auth d-flex p-5 justify-content-center align-items-center' >
+       <Container className='Signup p-5 shadow-lg rounded'>        
          <Row>
-          <Col className='Image d-flex align-items-center justify-content-center'>
-           <img src='https://cdn.dribbble.com/users/1579322/screenshots/6587273/blue_boy_typing_nothought.gif'></img>
+          <Col className='Image d-flex flex-column align-items-center justify-content-center'>
+            <h3>TRANSITO</h3>
+           <img className=" p-1 " src='https://cdn.dribbble.com/users/1579322/screenshots/6587273/blue_boy_typing_nothought.gif'></img>
           </Col>
           <Col className='p-2 my-2'>
-          <div className='p-2 Card text-start'>
           <h2>Sign In</h2>
+          <div className='p-2 Card text-start'>
           <form >
              <div className="mb-3">
                  <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>

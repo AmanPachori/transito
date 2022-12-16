@@ -7,44 +7,45 @@ import '../../App.css'
 
 const url = 'http://localhost:8000/user/signin';
 const Signup = () => {
-  const [email,setEmail] = useState("")
-  const [username,setUsername] = useState("");
-  const [password,setPassword] = useState("")
+  const [email,setEmail] = useState<string>("")
+  const [username,setUsername] = useState<string>("");
+  const [password,setPassword] = useState<string>("")
   
-  // const submit = (e) =>{
-  //   e.preventDefault();
+  const submit = (e) =>{
+    e.preventDefault();
+    if(!email&&!password)
+    {
+      alert('Please enter your email and password');
+    }
+    else{
+      axios.post(url,{
+        email,
+        password
+      })
+      .then((res) => {
+        localStorage.setItem("jwt",res.data.token);
+        localStorage.setItem("id",res.data._id);
+        if(!res.data.token){
+          alert("Please Login again");
 
-  //   if(!email&&!password)
-  //   {
-  //     alert('Please enter your email and password');
-  //   }
-  //   else{
-  //     axios.post(url,{
-  //       email,
-  //       password
-  //     })
-  //     .then((res) => {
-  //       localStorage.setItem("jwt",res.data.token);
-  //       localStorage.setItem("id",res.data._id);
-  //       if(!res.data.token){
-  //         alert("Please Login again");
-
-  //       }
-  //       else{
-  //         window.location='./dashboard'
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     })
-  //   }
-  // }
+        }
+        else{
+          window.location='./dashboard'
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+  }
   
   return (
     <div className='auth d-flex p-5 justify-content-center align-item-center' >
        <Container className='Signup shadow-lg p-5  rounded'>
          <Row>
-          <Col className='Image d-flex align-items-center justify-content-center'>
+          <Col className='Image d-flex flex-column align-items-center justify-content-center'>
+          <h3>TRANSITO</h3>
+
            <img src='https://cdn.dribbble.com/users/1579322/screenshots/6587273/blue_boy_typing_nothought.gif'></img>
           </Col>
           <Col className='p-2 my-2'>
