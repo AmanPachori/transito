@@ -2,23 +2,28 @@ import React ,{useState} from 'react'
 import {Container,Card,Button,Row,Col, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios'
 import '../../App.css'
 
-const url = 'http://localhost:8000/user/signin';
-const Signup = () => {
-  const [email,setEmail] = useState<string>("")
-  const [username,setUsername] = useState<string>("");
-  const [password,setPassword] = useState<string>("")
+
+type path = './profile'
+
+const url = 'http://localhost:8000/user/register';
+
+const Signup : React.FC = () => {
+  const [email,setEmail] = useState<string>();
+  const [username,setUsername] = useState<string>();
+  const [password,setPassword] = useState<string>();
   
-  const submit = (e) =>{
+  const submit = (e:any) =>{
     e.preventDefault();
-    if(!email&&!password)
+    if(!email&&!password&&!username)
     {
-      alert('Please enter your email and password');
+      alert('Please fill all the fields below');
     }
     else{
       axios.post(url,{
+        username,
         email,
         password
       })
@@ -30,7 +35,7 @@ const Signup = () => {
 
         }
         else{
-          window.location='./dashboard'
+          window.location.href = 'http://localhost:3000/profile';
         }
       })
       .catch((err) => {
@@ -51,7 +56,7 @@ const Signup = () => {
           <Col className='p-2 my-2'>
           <div className='p-2 Card text-start'>
           <h2>Sign Up</h2>
-          <form>
+          <form >
              <div className="mb-3">
                  <label htmlFor="Name"  className="form-label">Name</label>
                  <input type="text" value={username} name="username" onChange={(e)=>{setUsername(e.target.value)}} className="form-control" id="Name" aria-describedby="emailHelp"/>
@@ -64,7 +69,7 @@ const Signup = () => {
               <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
               <input type="password" value={password} name="password" onChange={(e)=>{setPassword(e.target.value)}} className="form-control" id="exampleInputPassword1"/>
               </div>
-             <button type="submit" className="btn btn-primary my-2">Sign Up</button>
+             <button type="submit" onClick={submit} className="btn btn-primary my-2">Sign Up</button>
              <br/>
              <Link className="p-2 Link" to='/signin'>Already have an account ? Sign In</Link>
 </form>
