@@ -95,7 +95,7 @@ h2{
 }
 @media screen and (max-width: 1247px) {
   .sidenav {
-   min-width : min-content !important;
+   min-width : 90vw !important;
    height: 8vh !important;
    font-size: 12px !important;;
   }
@@ -116,6 +116,18 @@ h2{
     font-size: 12px !important;
     width: fit-content !important;
   }
+  .Head h3,
+  .Value h3{
+    font-size: 20px!important;
+    margin-left: auto;
+    padding-left: auto;
+  }
+  .profile{
+    width: 100vw !important;
+  }
+}
+.details img{
+  border-radius: 50%;
 }
 .card{
   transform: scale(1);
@@ -127,12 +139,14 @@ h2{
   transition:all 0.2s ease-out;
   transform: none;
 }
+.profile{
+  width: 55vw;
+}
 
 .details{
   background: var(--cardColor);
   color: var(--themeColor);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-
 }
 .card span,
 .Value{
@@ -143,6 +157,24 @@ h2{
   transform: scale(1.02);
   border : 2.5px solid var(--cardColor4);
   filter: drop-shadow(0 0 0px rgb(255, 255, 255, 60%));
+}
+.profileCard{
+  position: relative;
+}
+.profileCard:hover > .btns,
+.profileCard img:hover > .btns{
+  display: block;
+}
+.btns {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right:5px;
+}
+.profileCard span{
+  color: var(--paragraphColor);
+  font-size: medium;
+  font-weight: 600;
 }
 .card-link{
   text-decoration: none;

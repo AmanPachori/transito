@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css'
 const Sidenav :React.FC  = () => {
   return (
-    <div className="sidenav m-2 p-2 col-3 col-sm-11 col-xl-2 mx-sm-5 bg-dark d-flex sticky-top">
+    <div className="sidenav m-2 p-2 col-3 col-sm-12 col-xl-2 mx-sm-5 bg-dark d-flex sticky-top">
             <div className="sidenavcomponent flex-grow-1 px-3 p-2 text-white">
                 <a href="/" className="d-flex heading align-items-start py-sm-2 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span className="fs-5">Transaction</span>

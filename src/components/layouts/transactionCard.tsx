@@ -12,7 +12,7 @@ interface prop {
 
 const TransactionCard: React.FC<prop> = ({blockNumber,Hash,value,category}) => {
   return (
-    <div className="card col-4 m-1" >
+    <div className="card m-1" >
   <div className="card-body">
     <h5 className="card-title fw-6">Block Number : <span className=''>{blockNumber}</span></h5>
     <h5 className="card-title fw-6">Hash : <span className='fs-6 '>{Hash}</span></h5>

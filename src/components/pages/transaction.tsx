@@ -11,9 +11,9 @@ const Transaction: React.FC = () => {
         <div className='col-lg-3 col-sm-11'>
           <Sidenav />
         </div>
-        <div className="col-lg-9 h-100 col-sm-10 col-md-10 py-2">
+        <div className="col-lg-9 h-100 col-sm-12 col-md-12 py-2">
             <div className="row h-100">
-                <div className="col-11 p-2 container justify-content-center">
+                <div className="col-11 p-2 px-5 container justify-content-center">
                     <h3 className="">Transaction Details</h3>
                     <div className='Category mx-2 p-5 d-flex justify-content-center'>
                       <div className=' mx-1 p-1 d-flex justify-content-center'>
