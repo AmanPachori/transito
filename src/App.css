@@ -47,8 +47,6 @@ h2{
     background-color:  var(--themeColor);
 }
 .Image img{
-    min-width: 200px;
-    min-height: 200px;
     max-height: 400px;
     max-width: 400px;
 }
@@ -125,6 +123,10 @@ h2{
   .profile{
     width: 100vw !important;
   }
+  .Image img{
+    max-width: 180px !important;
+    max-height: 180px !important;
+  }
 }
 .details img{
   border-radius: 50%;
@@ -142,7 +144,9 @@ h2{
 .profile{
   width: 55vw;
 }
-
+.profileimage img{
+  height: 35vh
+}
 .details{
   background: var(--cardColor);
   color: var(--themeColor);
