@@ -15,7 +15,8 @@
 }
 .App{
   background-color: var(--backgroundColor);
-  color: var(--paragraphColor)
+  color: var(--paragraphColor);
+  width : 100vw;
 }
 /* -------------Auth -------------*/
 
@@ -147,6 +148,11 @@ h2{
 .profileimage img{
   height: 35vh
 }
+.chain-badge_logo{
+  padding: 0.3125rem 1.91625rem 0.375rem;
+  border-radius: 5.3125rem;
+  background-color: var(--paragraphColor);
+}
 .details{
   background: var(--cardColor);
   color: var(--themeColor);
@@ -191,4 +197,18 @@ h2{
 .nav-item i,
 .nav-item span {
   color: var(--themeColor);
+}
+
+.svg .second
+{
+  transform: rotate(17deg);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform:  translate(-50%, -50%) ;
+
+}
+.svg .third,
+.svg .first{
+  transform: rotate(-15deg);
 }
