@@ -1,4 +1,4 @@
-import React from 'react';
+import Reach from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -12,6 +12,7 @@ import Particles from './components/Particle';
 import './App.css';
 import Signin from './components/authentication/Signin';
 import Signup from './components/authentication/Signup';
+import axios from 'axios';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/all" element={<Transaction/>}/>
-      <Route path="/detail" element={<SingleTranscation/>} />
+      <Route path="/all/detail/:id" element={<SingleTranscation/>} />
       <Route path="/profile" element={<Profile/>} />
       <Route path="/signin" element={<Signin/>} />
       <Route path="/signup" element={<Signup/>} />

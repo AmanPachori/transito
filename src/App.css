@@ -117,7 +117,7 @@ h2{
   }
   .Head h3,
   .Value h3{
-    font-size: 20px!important;
+    font-size: 18px!important;
     margin-left: auto;
     padding-left: auto;
   }
@@ -157,6 +157,7 @@ h2{
   background: var(--cardColor);
   color: var(--themeColor);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  overflow-wrap: break-word ;
 }
 .card span,
 .Value{
@@ -199,16 +200,10 @@ h2{
   color: var(--themeColor);
 }
 
-.svg .second
-{
-  transform: rotate(17deg);
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform:  translate(-50%, -50%) ;
-
+.home{
+  height: 70vh;
 }
-.svg .third,
-.svg .first{
-  transform: rotate(-15deg);
+
+.home h1{
+  font-size: 48px;
 }

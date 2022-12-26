@@ -4,15 +4,19 @@ const Home: React.FC = () => {
   return (
     <div className='p-5 home'>
       <div className='container-fluid'>
-        <div className='row border'>
-          <div className="col-6 p-5 d-flex flex-column justify-content-center align-items-center">
-           <img src="https://assets-global.website-files.com/5f973c970bea5548ad4287ef/633859dd413e411e97f02180_ethereum-eth-logo-full-horizontal%201.svg" loading="lazy" alt="" className=" m-1 chain-badge_logo"/>
-            <h1>Transito</h1>
+        <nav className='navbar d-flex justify-content-between'>
+          <div>
+            <h3 className='fs-3'>Transito</h3>
           </div>
-          <div className="col-6 p-5 svg">
-          <img src="https://img.icons8.com/color/48/000000/ethereum.png" className='rotate-90 img-fluid first'/>  
-          <img src="https://img.icons8.com/color/360/000000/ethereum.png" className='rotate-90 img-fluid second'/>  
-          <img src="https://img.icons8.com/color/48/000000/ethereum.png" className='rotate-90 third'/>  
+          <div>
+            <button onClick={()=>{window.location.href="http://localhost:3000/signin"}} className='fs-6 fw-bold btn btn-outline-light'>Signin</button>
+          </div>
+
+        </nav>
+        <div className='home row'>
+          <div className=" p-5 fade-in-up d-flex flex-column justify-content-center h-100">
+            <h1 className=' fw-bolder'>Transito</h1>
+            <p className='fw-bold fs-2'> Allow users to track their transaction history on Ethereum Blockchain. </p>
           </div>
         </div>
       </div>
