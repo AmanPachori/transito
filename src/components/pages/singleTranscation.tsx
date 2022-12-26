@@ -1,9 +1,55 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css'
 import Sidenav from '../layouts/sidenav';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
+
+const url = "http://localhost:8000/user";
+const id = localStorage.getItem("id");
+const token = localStorage.getItem("jwt");
+const config = {
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+};
+
+type Object = {
+blockNum : string,
+hash : string,
+to:string,
+from:string,
+category:string,
+erc721TokenId :string,
+erc1155Metadata :string,
+tokenId: string,
+asset : string,
+}
 
 const SingleTranscation : React.FC = () => {
+  const [trans,setTrans] = useState<any[]>([]);
+  const [data,setData] = useState<Object>();
+  const { id } = useParams();
+  useEffect(() => {
+   const load = () =>{
+    axios.get(`${url}/detail/`, config).then((res) => {
+      setTrans(res.data.transaction);
+      trans.map((e)=>{
+        if(e.blockNum===id)
+        {
+          setData(e);
+
+        }
+      })
+    });
+   }
+
+   load();
+
+  }, []);
+  
   return (
     <div className="Transaction p-2 ">
       <div className="container-fluid h-100 mw-100">
@@ -19,39 +65,39 @@ const SingleTranscation : React.FC = () => {
                   <div className="details container w-100 p-5 m-2 ">
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>Block Number</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.blockNum}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>Hash</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.hash}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>From</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.from}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>To </h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.to}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>erc721TokenId</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.erc721TokenId? data?.erc721TokenId:"Null"}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>erc1155Metadata</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.erc1155Metadata? data?.erc1155Metadata:"Null"}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>Token ID</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.tokenId? data?.tokenId:"Null"}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>Asset</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.asset}</h3></div>
                     </div>
                     <div className='fw-6 p-2 d-flex'>
                       <div className="Head w-50"><h3>Category</h3></div>
-                      <div className="Value w-50"><h3>kjhujk</h3></div>
+                      <div className="Value w-50"><h3>{data?.category}</h3></div>
                     </div>                    
                   </div>
                 </div>

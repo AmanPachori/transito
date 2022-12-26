@@ -15,18 +15,21 @@ const Profile: React.FC = () => {
   const url = 'http://localhost:8000/user'
   const id = localStorage.getItem('id');
   const token = localStorage.getItem('jwt');
-  const headers = {
-    "Content-Type": "application/json",
-    "Authorization": `${token}`,
+  const config = {
+    headers:{
+      "Content-Type": "application/json",
+     "Authorization": `Bearer ${token}`,
+    }
   };
   useEffect(() => {
-     axios.get(`${url}/view/${id}`)
+     axios.get(`${url}/view/${id}`,config)
      .then((res)=>{
       setImage(res.data.data.image);
       setAddress(res.data.data.address);
       setUsername(res.data.data.username);
       setEmail(res.data.data.email)
      })
+     .catch((error) => {console.log(error)})
   },[])
 
 
@@ -57,9 +60,7 @@ const Profile: React.FC = () => {
         username,
         address,
         image
-      },{
-       headers
-      })
+      },config)
       .then((res)=>{
         console.log(res);
         if(res.data.success == true)
@@ -172,9 +173,9 @@ const Profile: React.FC = () => {
                     <h4 className="fw-6 p-2">
                       Address : <span className="px-2">{address}</span>
                     </h4>
-                    <h4 className="fw-6 p-2">
+                    {/* <h4 className="fw-6 p-2">
                       Number of Transactions : <span className="px-2">80</span>
-                    </h4>
+                    </h4> */}
                   </div>
                 </div>
               </div>
