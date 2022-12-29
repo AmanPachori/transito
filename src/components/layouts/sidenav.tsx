@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.css'
 const Sidenav :React.FC  = () => {
+
+    const logout = () =>{
+        localStorage.removeItem('jwt');
+        localStorage.removeItem('id');
+    }
+
   return (
     <div className="sidenav m-2 p-2 col-3 col-sm-12 col-xl-2 mx-sm-5 bg-dark d-flex sticky-top">
             <div className="sidenavcomponent flex-grow-1 px-3 p-2 text-white">
@@ -10,13 +16,13 @@ const Sidenav :React.FC  = () => {
                 </a>
                 <ul className="nav w-100 nav-pills " id="menu">
                     <li className="nav-item">
-                        <a href="#" className="nav-link px-sm-0 px-2 mx-2">
+                        {/* <a href="/" className="nav-link px-sm-0 px-2 mx-2">
                             <i className="fs-5 p-1 bi-house"></i><span className="ms-1 d-none d-sm-inline">Home</span>
+                        </a> */}
+                        <a href="/all" className="nav-link px-sm-0 px-2 mx-2">
+                            <i className="fs-5 p-1 px-2 bi-card-text"></i><span className="ms-1 d-none d-sm-inline">All Transactions</span>
                         </a>
-                        <a href="#" className="nav-link px-sm-0 px-2 mx-2">
-                            <i className="fs-5 p-1 bi-card-text"></i><span className="ms-1 d-none d-sm-inline">All Transactions</span>
-                        </a>
-                        <a href="#" className="nav-link px-sm-0 px-2 mx-2">
+                        <a href="/profile" className="nav-link px-sm-0 px-2 mx-2">
                             <i className="fs-5 p-1 bi-person-badge"></i><span className="ms-1 d-none d-sm-inline">Profile</span>
                         </a>
                     </li>
@@ -28,11 +34,11 @@ const Sidenav :React.FC  = () => {
                         <span className="d-none d-sm-inline mx-1">Joe</span>
                     </a>
                     <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a className="dropdown-item" href="#">Profile</a></li>
+                        <li><a className="dropdown-item" href="/profile">Profile</a></li>
                         <li>
                             <hr className="dropdown-divider"/>
                         </li>
-                        <li><a className="dropdown-item" href="#">Sign out</a></li>
+                        <li><a className="dropdown-item" onClick={logout} href="/">Sign out</a></li>
                     </ul>
                 </div>
             </div>
